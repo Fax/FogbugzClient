@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="AuthorisedFogbugzCommand.cs" />
     <Compile Include="FogbugzCommand.cs" />
+    <Compile Include="LogonCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
