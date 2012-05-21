@@ -7,3 +7,4 @@ packages/**/*.nupkg
 packages/**/*.dll
 packages/**/*.xml
 packages/xunit.1.9.0.1566/lib/xunit.dll.tdnet
+*.[Cc]ache
