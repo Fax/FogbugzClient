@@ -19,6 +19,11 @@ namespace Fourth.Tradesimple.Fogbugz
             LogonCommand command = new LogonCommand(email, password);
             XDocument response = this.ExecuteCommand(command);
             XElement element = response.XPathSelectElement("//token");
+            if (element == null)
+            {
+                throw new FogbugzException();
+            }
+
             this.Token = element.Value;
         }
 
