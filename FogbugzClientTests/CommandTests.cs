@@ -60,5 +60,13 @@ namespace FogbugzClientTests
             string query = command.ToQueryString();
             query.ShouldEqual("cmd=test&param1=foo&param2=42");
         }
+
+        [Fact]
+        public void fogbugz_command_will_encode_its_parameters()
+        {
+            this.command = new TestCommand(param1: "value with \"space\"", param2: 42);
+            string query = this.command.ToQueryString();
+            query.ShouldEqual("cmd=test&param1=value+with+%22space%22&param2=42");
+        }
     }
 }
