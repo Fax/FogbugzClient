@@ -12,16 +12,8 @@ namespace FogbugzClientTests
             get { return "testauthorised"; }
         }
 
-        public override string Token
+        public TestAuthorisedCommand(string token) : base(token)
         {
-            get { return this.token; }
-        }
-
-        private string token;
-
-        public TestAuthorisedCommand(string token)
-        {
-            this.token = token;
         }
 
         protected override void AddParameters(IDictionary<string, string> parameters)
