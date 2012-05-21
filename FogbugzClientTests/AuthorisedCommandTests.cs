@@ -1,10 +1,10 @@
 ﻿using Fourth.Tradesimple.Fogbugz;
-using Xunit;
 using Should;
+using Xunit;
 
 namespace FogbugzClientTests
 {
-    class TestAuthorisedCommand : AuthorisedFogbugzCommand
+    public class TestAuthorisedCommand : AuthorisedFogbugzCommand
     {
         public override string FogbugzCommandName
         {
@@ -32,7 +32,7 @@ namespace FogbugzClientTests
     public class AuthorisedCommandTests
     {
         [Fact]
-        public void authorisedcommand_must_require_a_token()
+        public void Authorisedcommand_must_require_a_token()
         {
             var command = new TestAuthorisedCommand("sometoken");
             command.Token.ShouldEqual("sometoken");
