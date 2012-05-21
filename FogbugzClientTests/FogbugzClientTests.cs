@@ -34,6 +34,7 @@ namespace FogbugzClientTests
             this.client = SetupStubbedClient("<response><error code=\"1\">ERROR!</error></response>");
 
             var exception = Assert.Throws<FogbugzException>(() => this.client.Logon("simon.jefford@gmail.com", "password"));
+            exception.Message.ShouldEqual("ERROR!");
         }
     }
 }

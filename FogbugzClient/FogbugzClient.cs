@@ -21,7 +21,7 @@ namespace Fourth.Tradesimple.Fogbugz
             XElement element = response.XPathSelectElement("//token");
             if (element == null)
             {
-                throw new FogbugzException();
+                throw new FogbugzException(response.Root);
             }
 
             this.Token = element.Value;
