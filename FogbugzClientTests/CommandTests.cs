@@ -24,5 +24,13 @@ namespace FogbugzClientTests
             var command = new TestCommand();
             command.FogbugzCommandName.ShouldEqual("test");
         }
+
+        [Fact]
+        public void fogbugz_command_will_create_a_query_string_containing_the_command_name()
+        {
+            var command = new TestCommand();
+            string query = command.ToQueryString();
+            query.ShouldEqual("cmd=test");
+        }
     }
 }
