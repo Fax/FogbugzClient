@@ -1,4 +1,5 @@
-﻿using Fourth.Tradesimple.Fogbugz;
+﻿using System.Collections.Generic;
+using Fourth.Tradesimple.Fogbugz;
 using Should;
 using Xunit;
 
@@ -9,11 +10,6 @@ namespace FogbugzClientTests
         public override string FogbugzCommandName
         {
             get { return "testauthorised"; }
-        }
-
-        protected override void AddParameters(System.Collections.Generic.IDictionary<string, string> parameters)
-        {
-            throw new System.NotImplementedException();
         }
 
         public override string Token
@@ -27,15 +23,39 @@ namespace FogbugzClientTests
         {
             this.token = token;
         }
+
+        protected override void AddParameters(IDictionary<string, string> parameters)
+        {
+            if (!string.IsNullOrEmpty(this.SomeOtherParam))
+            {
+                parameters.Add("someotherparam", this.SomeOtherParam);
+            }
+        }
+
+        public string SomeOtherParam { get; set; }
     }
 
     public class AuthorisedCommandTests
     {
+        private TestAuthorisedCommand command = new TestAuthorisedCommand("sometoken");
+
         [Fact]
         public void Authorisedcommand_must_require_a_token()
         {
-            var command = new TestAuthorisedCommand("sometoken");
-            command.Token.ShouldEqual("sometoken");
+            this.command.Token.ShouldEqual("sometoken");
+        }
+
+        [Fact]
+        public void Authorisedcommand_includes_the_token_in_the_query_string()
+        {
+            this.command.ToQueryString().ShouldEqual("cmd=testauthorised&token=sometoken");
+        }
+
+        [Fact]
+        public void Authorisedcommand_still_includes_other_parameters_in_the_query_string()
+        {
+            this.command.SomeOtherParam = "42";
+            this.command.ToQueryString().ShouldEqual("cmd=testauthorised&someotherparam=42&token=sometoken");
         }
     }
 }

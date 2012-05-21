@@ -12,10 +12,15 @@ namespace Fourth.Tradesimple
 
         protected abstract void AddParameters(IDictionary<string, string> parameters);
 
+        protected virtual void AfterParametersAdded(IDictionary<string, string> parameters)
+        {
+        }
+
         public string ToQueryString()
         {
             Dictionary<string, string> paramsDictionary = new Dictionary<string, string>();
             this.AddParameters(paramsDictionary);
+            this.AfterParametersAdded(paramsDictionary);
             var parameterPairs = paramsDictionary.Select(kvp => string.Format("{0}={1}", kvp.Key, HttpUtility.UrlEncode(kvp.Value)));
             var paramstring = string.Join("&", parameterPairs);
             string query = string.Format("cmd={0}", this.FogbugzCommandName);
