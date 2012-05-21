@@ -35,6 +35,7 @@ namespace FogbugzClientTests
 
             var exception = Assert.Throws<FogbugzException>(() => this.client.Logon("simon.jefford@gmail.com", "password"));
             exception.Message.ShouldEqual("ERROR!");
+            exception.ErrorCode.ShouldEqual("1");
         }
     }
 }
