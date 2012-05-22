@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Xml.Linq;
 
 namespace Fourth.Tradesimple.Fogbugz
 {
@@ -15,6 +16,11 @@ namespace Fourth.Tradesimple.Fogbugz
 
         protected override void AddParameters(IDictionary<string, string> parameters)
         {
+        }
+
+        public FilterList CreateFilterList(XDocument filterXml)
+        {
+            return new FilterList(filterXml);
         }
     }
 }
