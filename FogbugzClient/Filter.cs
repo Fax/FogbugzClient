@@ -14,11 +14,18 @@ namespace Fourth.Tradesimple.Fogbugz
 
         public string Description { get; private set; }
 
+        public bool IsCurrent { get; private set; }
+
         public Filter(XElement source)
         {
             this.Type = source.Attribute("type").Value;
             this.Description = source.Value;
             this.FogbugzFilterDescriptor = source.Attribute("sFilter").Value;
+            var statusAttribute = source.Attribute("status");
+            if (statusAttribute != null)
+            {
+                this.IsCurrent = statusAttribute.Value == "current";
+            }
         }
     }
 }
