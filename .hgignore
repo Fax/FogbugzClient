@@ -11,3 +11,4 @@ packages/**/*.pdb
 packages/**/*.txt
 packages/xunit.1.9.0.1566/lib/xunit.dll.tdnet
 *.[Cc]ache
+*.user
