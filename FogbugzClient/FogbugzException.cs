@@ -14,9 +14,8 @@ namespace Fourth.Tradesimple.Fogbugz
         {
         }
 
-        public FogbugzException(XElement response) : base(ParseMessageFromResponse(response))
+        public FogbugzException(XElement errorElement) : base(ParseMessageFromResponse(errorElement))
         {
-            var errorElement = response.XPathSelectElement("/response/error");
             if (errorElement != null)
             {
                 var codeAttribute = errorElement.Attributes("code").FirstOrDefault();
@@ -27,12 +26,11 @@ namespace Fourth.Tradesimple.Fogbugz
             }
         }
 
-        private static string ParseMessageFromResponse(XElement response)
+        private static string ParseMessageFromResponse(XElement errorElement)
         {
-            XElement messageElement = response.XPathSelectElement("/response/error");
-            if (messageElement != null)
+            if (errorElement != null)
             {
-                return messageElement.Value;
+                return errorElement.Value;
             }
 
             return null;

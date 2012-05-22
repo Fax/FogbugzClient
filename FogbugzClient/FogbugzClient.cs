@@ -10,6 +10,8 @@ namespace Fourth.Tradesimple.Fogbugz
 
         private IFogbugzHttpClient httpClient;
 
+        private XElement errorElement;
+
         public FogbugzClient(IFogbugzHttpClient httpClient)
         {
             this.httpClient = httpClient;
@@ -20,24 +22,34 @@ namespace Fourth.Tradesimple.Fogbugz
             LogonCommand command = new LogonCommand(email, password);
             XDocument response = this.ExecuteCommand(command);
             XElement element = response.XPathSelectElement("//token");
-            if (element == null)
-            {
-                throw new FogbugzException(response.Root);
-            }
 
             this.Token = element.Value;
         }
 
+        private bool ResponseContainsError(XDocument response)
+        {
+            this.errorElement = response.XPathSelectElement("/response/error");
+            return this.errorElement != null;
+        }
+
         public XDocument ExecuteCommand(FogbugzCommand command)
         {
+            XDocument response;
             try
             {
-                return this.httpClient.ExecuteQuery(command.ToQueryString());
+                response = this.httpClient.ExecuteQuery(command.ToQueryString());
             }
             catch (Exception e)
             {
                 throw new FogbugzException("An error occurred while communicating with Fogbugz", e);
             }
+
+            if (this.ResponseContainsError(response))
+            {
+                throw new FogbugzException(this.errorElement);
+            }
+
+            return response;
         }
     }
 }
