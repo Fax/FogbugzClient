@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 
-namespace Fourth.Tradesimple
+namespace Fourth.Tradesimple.Fogbugz
 {
     public abstract class FogbugzCommand
     {

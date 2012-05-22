@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Fourth.Tradesimple;
+using Fourth.Tradesimple.Fogbugz;
 using Should;
 using Xunit;
 
