@@ -51,5 +51,11 @@ namespace Fourth.Tradesimple.Fogbugz
 
             return response;
         }
+
+        public T ExecuteCommand<T>(FogbugzCommand command, Func<XDocument, T> conversionFunc)
+        {
+            var response = this.ExecuteCommand(command);
+            return conversionFunc(response);
+        }
     }
 }
