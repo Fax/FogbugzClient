@@ -1,7 +1,7 @@
-﻿using Fourth.Tradesimple.Fogbugz;
+﻿using System.Xml.Linq;
+using Fourth.Tradesimple.Fogbugz;
 using Should;
 using Xunit;
-using System.Xml.Linq;
 
 namespace FogbugzClientTests
 {
