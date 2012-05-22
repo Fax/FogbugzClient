@@ -21,5 +21,17 @@ namespace Fourth.Tradesimple.Fogbugz
                 this.Add(filter);
             }
         }
+
+        public Filter CurrentFilter { get; private set; }
+
+        protected override void InsertItem(int index, Filter item)
+        {
+            if (item.IsCurrent)
+            {
+                this.CurrentFilter = item;
+            }
+
+            base.InsertItem(index, item);
+        }
     }
 }

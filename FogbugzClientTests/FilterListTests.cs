@@ -34,5 +34,11 @@ namespace FogbugzClientTests
             this.list[0].FogbugzFilterDescriptor.ShouldEqual("ex349");
             this.list[1].FogbugzFilterDescriptor.ShouldEqual("304");
         }
+
+        [Fact]
+        public void FilterList_tracks_the_active_filter()
+        {
+            this.list.CurrentFilter.ShouldBeSameAs(this.list[1]);
+        }
     }
 }
