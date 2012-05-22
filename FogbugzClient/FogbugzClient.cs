@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using System;
+using System.Xml.Linq;
 using System.Xml.XPath;
 
 namespace Fourth.Tradesimple.Fogbugz
@@ -29,7 +30,14 @@ namespace Fourth.Tradesimple.Fogbugz
 
         public XDocument ExecuteCommand(FogbugzCommand command)
         {
-            return this.httpClient.ExecuteQuery(command.ToQueryString());
+            try
+            {
+                return this.httpClient.ExecuteQuery(command.ToQueryString());
+            }
+            catch (Exception e)
+            {
+                throw new FogbugzException("An error occurred while communicating with Fogbugz", e);
+            }
         }
     }
 }
