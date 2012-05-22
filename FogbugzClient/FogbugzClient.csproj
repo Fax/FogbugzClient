@@ -55,6 +55,7 @@
     <Compile Include="FogbugzCommand.cs" />
     <Compile Include="FogbugzException.cs" />
     <Compile Include="IFogbugzHttpClient.cs" />
+    <Compile Include="ListFiltersCommand.cs" />
     <Compile Include="LogonCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -55,6 +55,7 @@
     <Compile Include="AuthorisedCommandTests.cs" />
     <Compile Include="CommandTests.cs" />
     <Compile Include="FogbugzClientTests.cs" />
+    <Compile Include="ListFiltersCommandTests.cs" />
     <Compile Include="LogonCommandTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
