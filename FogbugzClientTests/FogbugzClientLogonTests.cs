@@ -8,7 +8,7 @@ using Xunit;
 
 namespace FogbugzClientTests
 {
-    public class FogbugzClientTests
+    public class FogbugzClientLogonTests
     {
         private FogbugzClient client;
 
