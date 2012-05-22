@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="AuthorisedFogbugzCommand.cs" />
     <Compile Include="Filter.cs" />
+    <Compile Include="FilterList.cs" />
     <Compile Include="FogbugzClient.cs" />
     <Compile Include="FogbugzCommand.cs" />
     <Compile Include="FogbugzException.cs" />
