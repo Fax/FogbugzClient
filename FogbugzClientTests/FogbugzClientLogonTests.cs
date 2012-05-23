@@ -60,7 +60,7 @@ namespace FogbugzClientTests
                 this.client.Logon("simon.jefford@gmail.com", "password");
             });
             exception.InnerException.ShouldBeSameAs(e);
-            exception.Message.ShouldEqual("An error occurred while communicating with Fogbugz");
+            exception.Message.ShouldEqual("An error occurred while communicating with Fogbugz.");
         }
     }
 }

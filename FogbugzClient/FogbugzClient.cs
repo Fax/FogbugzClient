@@ -17,6 +17,10 @@ namespace Fourth.Tradesimple.Fogbugz
             this.httpClient = httpClient;
         }
 
+        public FogbugzClient(string baseUri) : this(new FogbugzHttpClient(baseUri))
+        {
+        }
+
         public void Logon(string email, string password)
         {
             LogonCommand command = new LogonCommand(email, password);
@@ -41,7 +45,7 @@ namespace Fourth.Tradesimple.Fogbugz
             }
             catch (Exception e)
             {
-                throw new FogbugzException("An error occurred while communicating with Fogbugz", e);
+                throw new FogbugzException("An error occurred while communicating with Fogbugz.", e);
             }
 
             if (this.ResponseContainsError(response))
@@ -52,7 +56,7 @@ namespace Fourth.Tradesimple.Fogbugz
             return response;
         }
 
-        public T ExecuteCommand<T>(FogbugzCommand command, Func<XDocument, T> conversionFunc)
+        public TFormatted ExecuteCommand<TFormatted>(FogbugzCommand command, Func<XDocument, TFormatted> conversionFunc)
         {
             var response = this.ExecuteCommand(command);
             return conversionFunc(response);
