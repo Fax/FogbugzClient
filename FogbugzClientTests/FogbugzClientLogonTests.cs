@@ -32,9 +32,9 @@ namespace FogbugzClientTests
         {
             this.client = SetupStubbedClient("<response><token>24dsg34lok43un23</token></response>");
 
-            this.client.Logon("simon.jefford@gmail.com", "password");
+            string token = this.client.Logon("simon.jefford@gmail.com", "password");
 
-            this.client.Token.ShouldEqual("24dsg34lok43un23");
+            token.ShouldEqual("24dsg34lok43un23");
         }
 
         [Fact]

@@ -6,8 +6,6 @@ namespace Fourth.Tradesimple.Fogbugz
 {
     public class FogbugzClient
     {
-        public string Token { get; private set; }
-
         private IFogbugzHttpClient httpClient;
 
         private XElement errorElement;
@@ -21,13 +19,13 @@ namespace Fourth.Tradesimple.Fogbugz
         {
         }
 
-        public void Logon(string email, string password)
+        public string Logon(string email, string password)
         {
             LogonCommand command = new LogonCommand(email, password);
             XDocument response = this.ExecuteCommand(command);
             XElement element = response.XPathSelectElement("//token");
 
-            this.Token = element.Value;
+            return element.Value;
         }
 
         private bool ResponseContainsError(XDocument response)
