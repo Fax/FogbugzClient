@@ -40,14 +40,14 @@ namespace FogbugzClientTests
         [Fact]
         public void Authorisedcommand_includes_the_token_in_the_query_string()
         {
-            this.command.ToQueryString().ShouldEqual("cmd=testauthorised&token=sometoken");
+            this.command.ToQueryString().ShouldEqual("token=sometoken&cmd=testauthorised");
         }
 
         [Fact]
         public void Authorisedcommand_still_includes_other_parameters_in_the_query_string()
         {
             this.command.SomeOtherParam = "42";
-            this.command.ToQueryString().ShouldEqual("cmd=testauthorised&someotherparam=42&token=sometoken");
+            this.command.ToQueryString().ShouldEqual("someotherparam=42&token=sometoken&cmd=testauthorised");
         }
     }
 }

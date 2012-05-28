@@ -19,9 +19,8 @@ namespace Fourth.Tradesimple.Fogbugz
         public string ToQueryString()
         {
             Dictionary<string, string> paramsDictionary = this.GetParameters();
-            var paramstring = ConvertParametersToQuery(paramsDictionary);
-            string query = string.Format("cmd={0}", this.FogbugzCommandName);
-            return string.Join("&", query, paramstring);
+            paramsDictionary.Add("cmd", this.FogbugzCommandName);
+            return ConvertParametersToQuery(paramsDictionary);
         }
 
         private static string ConvertParametersToQuery(Dictionary<string, string> paramsDictionary)
