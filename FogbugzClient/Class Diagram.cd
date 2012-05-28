@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Fourth.Tradesimple.Fogbugz.FogbugzCommand">
+    <Position X="5.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AIQAAAAAAAAAIAAAAQAAAAAAAAAAAAAAAAAAgACAAAA=</HashCode>
+      <FileName>FogbugzCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fourth.Tradesimple.Fogbugz.AuthorisedFogbugzCommand">
+    <Position X="3.25" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>AuthorisedFogbugzCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fourth.Tradesimple.Fogbugz.ListFiltersCommand">
+    <Position X="1.25" Y="6.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>ListFiltersCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fourth.Tradesimple.Fogbugz.LogonCommand">
+    <Position X="6.5" Y="3.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAACAAAA=</HashCode>
+      <FileName>LogonCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fourth.Tradesimple.Fogbugz.FogbugzClient">
+    <Position X="9.5" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAQAAAAAAgAAAAARAAAAAA=</HashCode>
+      <FileName>FogbugzClient.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="httpClient" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Fourth.Tradesimple.Fogbugz.FogbugzHttpClient">
+    <Position X="10" Y="5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>FogbugzHttpClient.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Fourth.Tradesimple.Fogbugz.IFogbugzHttpClient" Collapsed="true">
+    <Position X="10" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IFogbugzHttpClient.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
