@@ -14,7 +14,7 @@ namespace Fourth.Tradesimple.Fogbugz
             get { return "listFilters"; }
         }
 
-        protected override void AddParameters(IDictionary<string, string> parameters)
+        protected override void AddCommandSpecificParameters(IDictionary<string, string> parameters)
         {
         }
 

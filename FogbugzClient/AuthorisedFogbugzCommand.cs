@@ -11,7 +11,7 @@ namespace Fourth.Tradesimple.Fogbugz
             this.Token = token;
         }
 
-        protected override void AfterParametersAdded(IDictionary<string, string> parameters)
+        protected override void AddGenericParameters(IDictionary<string, string> parameters)
         {
             parameters.Add("token", this.Token);
         }

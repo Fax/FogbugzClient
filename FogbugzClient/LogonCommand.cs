@@ -9,7 +9,7 @@ namespace Fourth.Tradesimple.Fogbugz
             get { return "logon"; }
         }
 
-        protected override void AddParameters(IDictionary<string, string> parameters)
+        protected override void AddCommandSpecificParameters(IDictionary<string, string> parameters)
         {
             parameters.Add("email", this.Email);
             parameters.Add("password", this.Password);

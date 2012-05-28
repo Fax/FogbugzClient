@@ -17,7 +17,7 @@ namespace FogbugzClientTests
             this.param2 = param2;
         }
 
-        protected override void AddParameters(IDictionary<string, string> parameters)
+        protected override void AddCommandSpecificParameters(IDictionary<string, string> parameters)
         {
             parameters.Add("param1", this.param1);
             parameters.Add("param2", this.param2.ToString());

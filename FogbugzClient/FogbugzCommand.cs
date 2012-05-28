@@ -10,9 +10,9 @@ namespace Fourth.Tradesimple.Fogbugz
     {
         public abstract string FogbugzCommandName { get;  }
 
-        protected abstract void AddParameters(IDictionary<string, string> parameters);
+        protected abstract void AddCommandSpecificParameters(IDictionary<string, string> parameters);
 
-        protected virtual void AfterParametersAdded(IDictionary<string, string> parameters)
+        protected virtual void AddGenericParameters(IDictionary<string, string> parameters)
         {
         }
 
@@ -34,8 +34,8 @@ namespace Fourth.Tradesimple.Fogbugz
         private Dictionary<string, string> GetParameters()
         {
             Dictionary<string, string> paramsDictionary = new Dictionary<string, string>();
-            this.AddParameters(paramsDictionary);
-            this.AfterParametersAdded(paramsDictionary);
+            this.AddCommandSpecificParameters(paramsDictionary);
+            this.AddGenericParameters(paramsDictionary);
             return paramsDictionary;
         }
     }
