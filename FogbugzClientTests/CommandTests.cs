@@ -55,7 +55,7 @@ namespace FogbugzClientTests
         public void Fogbugz_command_allows_you_to_add_parameters_to_the_produced_query_string()
         {
             string query = this.command.ToQueryString();
-            query.ShouldEqual("param1=foo&param2=42&cmd=test");
+            query.ShouldContain("param1=foo&param2=42");
         }
 
         [Fact]
@@ -63,7 +63,7 @@ namespace FogbugzClientTests
         {
             this.command = new TestCommand(param1: "value with \"space\"", param2: 42);
             string query = this.command.ToQueryString();
-            query.ShouldEqual("param1=value+with+%22space%22&param2=42&cmd=test");
+            query.ShouldContain("param1=value+with+%22space%22&param2=42");
         }
     }
 }
