@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("FogbugzClient")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A simple client for accessing a Fogbugz installation via the offical API")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Fourth Hospitality")]
 [assembly: AssemblyProduct("FogbugzClient")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
+[assembly: AssemblyCopyright("Copyright © Fourth Hospitality  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

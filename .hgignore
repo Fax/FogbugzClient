@@ -3,7 +3,7 @@ syntax: glob
 bin
 obj
 *.swp
-packages/**/*.nupkg
+*.nupkg
 packages/**/*.dll
 packages/**/*.xml
 packages/**/*.chm

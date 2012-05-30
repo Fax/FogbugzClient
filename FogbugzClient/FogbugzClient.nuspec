@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>FogbugzClient</id>
+    <version>$version$</version>
+    <title>Fogbugz Client</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <projectUrl>https://github.com/fourthhospitality/fogbugzclient</projectUrl>
+    <licenseUrl>http://mit-license.org/</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>Copyright 2012</copyright>
+    <tags>fogbugz</tags>
+  </metadata>
+</package>
