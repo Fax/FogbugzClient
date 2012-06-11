@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Xml.Linq;
 using System.Xml.XPath;
+using Ninject;
+using Ninject.Parameters;
 
 namespace Fourth.Tradesimple.Fogbugz
 {
@@ -10,9 +12,12 @@ namespace Fourth.Tradesimple.Fogbugz
 
         private XElement errorElement;
 
+        private IKernel container;
+
         public FogbugzClient(IFogbugzHttpClient httpClient)
         {
             this.httpClient = httpClient;
+            this.container = new StandardKernel();
         }
 
         public FogbugzClient(string baseUri) : this(new FogbugzHttpClient(baseUri))
@@ -58,6 +63,11 @@ namespace Fourth.Tradesimple.Fogbugz
         {
             var response = this.ExecuteCommand(command);
             return conversionFunc(response);
+        }
+
+        public FogbugzCommand CreateCommand<TCommand>() where TCommand : FogbugzCommand
+        {
+            return this.container.Get<TCommand>();
         }
     }
 }

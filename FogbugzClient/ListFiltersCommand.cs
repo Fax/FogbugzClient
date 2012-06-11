@@ -5,10 +5,6 @@ namespace Fourth.Tradesimple.Fogbugz
 {
     public class ListFiltersCommand : AuthorisedFogbugzCommand
     {
-        public ListFiltersCommand(string token) : base(token)
-        {
-        }
-
         public override string FogbugzCommandName
         {
             get { return "listFilters"; }

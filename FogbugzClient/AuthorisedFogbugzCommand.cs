@@ -4,11 +4,10 @@ namespace Fourth.Tradesimple.Fogbugz
 {
     public abstract class AuthorisedFogbugzCommand : FogbugzCommand
     {
-        public string Token { get; private set; }
+        public string Token { get; set; }
 
-        public AuthorisedFogbugzCommand(string token)
+        public AuthorisedFogbugzCommand()
         {
-            this.Token = token;
         }
 
         protected override void AddGenericParameters(IDictionary<string, string> parameters)

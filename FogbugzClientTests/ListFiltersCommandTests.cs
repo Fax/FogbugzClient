@@ -10,7 +10,7 @@ namespace FogbugzClientTests
         [Fact]
         public void ListFiltersCommand_has_a_command_name_of_listFilters()
         {
-            ListFiltersCommand command = new ListFiltersCommand("sometoken");
+            ListFiltersCommand command = new ListFiltersCommand();
             command.FogbugzCommandName.ShouldEqual("listFilters");
         }
 
@@ -30,7 +30,7 @@ namespace FogbugzClientTests
                                         new XAttribute("status", "current"),
                                         "Cases I should have closed months ago"))));
 
-            var result = new ListFiltersCommand("sometoken").CreateFilterList(filterDoc);
+            var result = new ListFiltersCommand().CreateFilterList(filterDoc);
             result.Count.ShouldEqual(2);
         }
     }

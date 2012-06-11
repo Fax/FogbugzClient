@@ -56,6 +56,7 @@
     <Compile Include="CommandTests.cs" />
     <Compile Include="FilterListTests.cs" />
     <Compile Include="FilterTests.cs" />
+    <Compile Include="FogbugzClientCommandCreationTests.cs" />
     <Compile Include="FogbugzClientExecutionTests.cs" />
     <Compile Include="FogbugzClientLogonTests.cs" />
     <Compile Include="ListFiltersCommandTests.cs" />

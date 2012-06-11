@@ -12,10 +12,6 @@ namespace FogbugzClientTests
             get { return "testauthorised"; }
         }
 
-        public TestAuthorisedCommand(string token) : base(token)
-        {
-        }
-
         protected override void AddCommandSpecificParameters(IDictionary<string, string> parameters)
         {
             if (!string.IsNullOrEmpty(this.SomeOtherParam))
@@ -29,7 +25,12 @@ namespace FogbugzClientTests
 
     public class AuthorisedCommandTests
     {
-        private TestAuthorisedCommand command = new TestAuthorisedCommand("sometoken");
+        private TestAuthorisedCommand command = new TestAuthorisedCommand();
+
+        public AuthorisedCommandTests()
+        {
+            this.command.Token = "sometoken";
+        }
 
         [Fact]
         public void Authorisedcommand_must_require_a_token()
