@@ -36,11 +36,13 @@ namespace FogbugzClientTests
         [Fact]
         public void Authorisedcommand_must_require_a_token()
         {
-            Assert.Throws<InvalidOperationException>(() =>
+            var exception = Assert.Throws<InvalidOperationException>(() =>
             {
                 this.command.Token = null;
                 this.command.ToQueryString();
             });
+
+            exception.Message.ShouldEqual("No token was provided.");
         }
 
         [Fact]

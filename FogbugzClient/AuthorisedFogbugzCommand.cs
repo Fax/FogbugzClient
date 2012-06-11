@@ -15,7 +15,7 @@ namespace Fourth.Tradesimple.Fogbugz
         {
             if (string.IsNullOrEmpty(this.Token))
             {
-                throw new InvalidOperationException();
+                throw new InvalidOperationException("No token was provided.");
             }
 
             parameters.Add("token", this.Token);
