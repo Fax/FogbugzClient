@@ -67,6 +67,11 @@ namespace Fourth.Tradesimple.Fogbugz
 
         public TCommand CreateCommand<TCommand>() where TCommand : AuthorisedFogbugzCommand
         {
+            if (string.IsNullOrEmpty(this.Token))
+            {
+                throw new InvalidOperationException("You cannot create a command before logging in.");
+            }
+
             var command = this.container.Get<TCommand>();
             command.Token = this.Token;
             return command;

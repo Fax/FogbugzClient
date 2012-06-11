@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Xml.Linq;
 using Fourth.Tradesimple.Fogbugz;
 using Moq;
@@ -24,7 +25,8 @@ namespace FogbugzClientTests
         [Fact]
         public void FogbugzClient_can_create_command_objects()
         {
-            var client = new FogbugzClient(new Mock<IFogbugzHttpClient>().Object);
+            var token = "24dsg34lok43un23";
+            var client = SetupLoggedOnClient(token);
             FogbugzCommand command = client.CreateCommand<ListFiltersCommand>();
             command.ShouldBeType<ListFiltersCommand>();
         }
@@ -47,6 +49,16 @@ namespace FogbugzClientTests
             var client = SetupLoggedOnClient(token);
             var command = client.CreateCommand<CreationTestAuthorisedCommand>();
             command.Token.ShouldEqual(token);
+        }
+
+        [Fact]
+        public void FogbugzClient_does_not_allow_the_creation_of_command_objects_if_not_logged_on()
+        {
+            var client = new FogbugzClient(new Mock<IFogbugzHttpClient>().Object);
+            Assert.Throws<InvalidOperationException>(() =>
+            {
+                client.CreateCommand<CreationTestAuthorisedCommand>();
+            });
         }
     }
 }
