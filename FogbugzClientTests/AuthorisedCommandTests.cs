@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Fourth.Tradesimple.Fogbugz;
 using Should;
 using Xunit;
@@ -35,7 +36,11 @@ namespace FogbugzClientTests
         [Fact]
         public void Authorisedcommand_must_require_a_token()
         {
-            this.command.Token.ShouldEqual("sometoken");
+            Assert.Throws<InvalidOperationException>(() =>
+            {
+                this.command.Token = null;
+                this.command.ToQueryString();
+            });
         }
 
         [Fact]

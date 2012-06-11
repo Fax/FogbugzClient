@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Fourth.Tradesimple.Fogbugz
 {
@@ -12,6 +13,11 @@ namespace Fourth.Tradesimple.Fogbugz
 
         protected override void AddGenericParameters(IDictionary<string, string> parameters)
         {
+            if (string.IsNullOrEmpty(this.Token))
+            {
+                throw new InvalidOperationException();
+            }
+
             parameters.Add("token", this.Token);
         }
     }
