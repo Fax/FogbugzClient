@@ -65,7 +65,7 @@ namespace Fourth.Tradesimple.Fogbugz
             return conversionFunc(response);
         }
 
-        public FogbugzCommand CreateCommand<TCommand>() where TCommand : FogbugzCommand
+        public FogbugzCommand CreateCommand<TCommand>() where TCommand : AuthorisedFogbugzCommand
         {
             return this.container.Get<TCommand>();
         }
