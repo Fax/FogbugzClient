@@ -29,8 +29,8 @@ namespace Fourth.Tradesimple.Fogbugz
             LogonCommand command = new LogonCommand(email, password);
             XDocument response = this.ExecuteCommand(command);
             XElement element = response.XPathSelectElement("//token");
-
-            return element.Value;
+            this.Token = element.Value;
+            return this.Token;
         }
 
         private bool ResponseContainsError(XDocument response)
@@ -65,9 +65,13 @@ namespace Fourth.Tradesimple.Fogbugz
             return conversionFunc(response);
         }
 
-        public FogbugzCommand CreateCommand<TCommand>() where TCommand : AuthorisedFogbugzCommand
+        public TCommand CreateCommand<TCommand>() where TCommand : AuthorisedFogbugzCommand
         {
-            return this.container.Get<TCommand>();
+            var command = this.container.Get<TCommand>();
+            command.Token = this.Token;
+            return command;
         }
+
+        public string Token { get; set; }
     }
 }
