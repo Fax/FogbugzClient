@@ -7,7 +7,7 @@
     <authors>$author$</authors>
     <owners>$author$</owners>
     <projectUrl>https://github.com/fourthhospitality/fogbugzclient</projectUrl>
-    <licenseUrl>http://mit-license.org/</licenseUrl>
+    <licenseUrl>http://www.opensource.org/licenses/MIT</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>$description$</description>
     <copyright>Copyright 2012</copyright>
