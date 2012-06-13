@@ -15,3 +15,8 @@ var xml = client.ExecuteCommand(command);
 var filterList = client.ExecuteCommand(command, command.CreateFilterList);
 ```
 
+## LICENSE
+
+FogbugzClient is copyright Fourth Hospitality 2012 and is released under the MIT license:
+
+* http://www.opensource.org/licenses/MIT
