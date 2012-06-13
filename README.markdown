@@ -1,6 +1,6 @@
 # Fogbugz client
 
-A simple client implemented in C# that access Fogbugz by allowing you to send command objects to a library.
+A simple client implemented in C# that accesses Fogbugz by allowing you to send command objects to a library.
 
 ## A simple example
 
