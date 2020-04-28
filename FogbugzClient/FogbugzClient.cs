@@ -44,7 +44,15 @@ namespace Fourth.Tradesimple.Fogbugz
             XDocument response;
             try
             {
-                response = this.httpClient.ExecuteQuery(command.ToQueryString());
+                var queryString = command.ToQueryString();
+                // FR For the love of the coding god, the token! We have it in the client, why we are not adding it automatically to the querystring??
+                if (!String.IsNullOrWhiteSpace(this.Token))
+                {
+                    queryString += $"&token={this.Token}";
+                }
+
+                response = this.httpClient.ExecuteQuery(queryString);
+
             }
             catch (Exception e)
             {
